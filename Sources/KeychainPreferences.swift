@@ -19,7 +19,6 @@ public struct KeychainPreferences: Preferences {
     let resultCode: OSStatus = withUnsafeMutablePointer(to: &result) {
       SecItemCopyMatching(query as CFDictionary, UnsafeMutablePointer($0))
     }
-    print(resultCode)
 
     guard resultCode == noErr,
       let data = result as? Data else {
@@ -40,8 +39,7 @@ public struct KeychainPreferences: Preferences {
     var query = self.query(forKey: key.rawKey)
     query[kSecValueData] = encodedData
 
-    let status: OSStatus = SecItemAdd(query as CFDictionary, nil)    
-    print(status)
+    let _: OSStatus = SecItemAdd(query as CFDictionary, nil)
   }
 
   private func deleteItem(forKey key: String) {
@@ -52,8 +50,7 @@ public struct KeychainPreferences: Preferences {
 
     addAccessGroup(to: &query)
 
-    let status = SecItemDelete(query as CFDictionary)
-    print(status)
+    let _: OSStatus = SecItemDelete(query as CFDictionary)
   }
 
   private func query(forKey key: String) -> [CFString: Any] {
