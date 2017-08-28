@@ -14,3 +14,33 @@ public protocol PreferenceValue {
   static func decode(_ data: Data) -> Self?
   func encode() -> Data?
 }
+
+public protocol CodablePreferenceValue: PreferenceValue, Codable {
+    
+}
+
+extension CodablePreferenceValue {
+    public static func decode(_ data: Data) -> Self? {
+        let decoder = JSONDecoder()
+        return try? decoder.decode(self, from: data)
+    }
+    
+    public func encode() -> Data? {
+        let coder = JSONEncoder()
+        return try? coder.encode(self)
+    }
+}
+
+public struct AnyPreferenceKey<Value: PreferenceValue>: PreferenceKey {
+    public typealias PreferenceValueType = Value
+    
+    public let rawKey: String
+    
+    public init<Key: PreferenceKey>(key: Key) {
+        self.init(rawKey: key.rawKey)
+    }
+    
+    public init(rawKey: String) {
+        self.rawKey = rawKey
+    }
+}

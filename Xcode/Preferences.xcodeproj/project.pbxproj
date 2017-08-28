@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0995F2081F540FFE004F7BDF /* AddressValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995F2071F540FFE004F7BDF /* AddressValue.swift */; };
 		09D32E8A1EFC5D140075C0EE /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32E871EFC5D140075C0EE /* Preferences.swift */; };
 		09D32E8B1EFC5D140075C0EE /* UserDefaultsPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32E881EFC5D140075C0EE /* UserDefaultsPreferences.swift */; };
 		09D32E8C1EFC5D140075C0EE /* KeychainPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32E891EFC5D140075C0EE /* KeychainPreferences.swift */; };
@@ -39,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0995F2071F540FFE004F7BDF /* AddressValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressValue.swift; sourceTree = "<group>"; };
+		0995F20A1F541311004F7BDF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0995F20B1F541311004F7BDF /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		0995F20C1F541311004F7BDF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		09D32E871EFC5D140075C0EE /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		09D32E881EFC5D140075C0EE /* UserDefaultsPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsPreferences.swift; sourceTree = "<group>"; };
 		09D32E891EFC5D140075C0EE /* KeychainPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPreferences.swift; sourceTree = "<group>"; };
@@ -84,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0995F2091F5412FF004F7BDF /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				0995F20B1F541311004F7BDF /* CHANGELOG.md */,
+				0995F20C1F541311004F7BDF /* LICENSE */,
+				0995F20A1F541311004F7BDF /* README.md */,
+			);
+			name = Docs;
+			sourceTree = "<group>";
+		};
 		09D32E861EFC5D140075C0EE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +126,7 @@
 		09E0439B1EFC5CD900AEDD73 = {
 			isa = PBXGroup;
 			children = (
+				0995F2091F5412FF004F7BDF /* Docs */,
 				09D32E861EFC5D140075C0EE /* Sources */,
 				09E043A71EFC5CD900AEDD73 /* Preferences */,
 				09E043B21EFC5CDA00AEDD73 /* PreferencesTests */,
@@ -144,6 +160,7 @@
 				09E043B31EFC5CDA00AEDD73 /* PreferencesTests.swift */,
 				09E043B51EFC5CDA00AEDD73 /* Info.plist */,
 				09D32E8D1EFC5D7F0075C0EE /* NameValue.swift */,
+				0995F2071F540FFE004F7BDF /* AddressValue.swift */,
 			);
 			path = PreferencesTests;
 			sourceTree = "<group>";
@@ -310,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09D32E8E1EFC5D7F0075C0EE /* NameValue.swift in Sources */,
+				0995F2081F540FFE004F7BDF /* AddressValue.swift in Sources */,
 				09E043B41EFC5CDA00AEDD73 /* PreferencesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +582,7 @@
 				09D32EA41EFC60E30075C0EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09E0439F1EFC5CD900AEDD73 /* Build configuration list for PBXProject "Preferences" */ = {
 			isa = XCConfigurationList;
