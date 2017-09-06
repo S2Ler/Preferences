@@ -40,6 +40,6 @@ try preferences.set("PreferenceValue", for: key)
 ```
 
 ## Links
-- [Changelog](CHANGELOG.me)
+- [Changelog](CHANGELOG.md)
 
 
