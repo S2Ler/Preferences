@@ -43,5 +43,11 @@ class PreferencesTests: XCTestCase {
         XCTAssertEqual(initialValue.street, extractedValue?.street)
         XCTAssertEqual(initialValue.homeNumber, extractedValue?.homeNumber)
     }
-    
+
+    static var allTests = [
+      ("testKeychain", testKeychain),
+      ("testCodable", testCodable),
+      ("testAnyPreferenceKey", testAnyPreferenceKey),
+      ]
+
 }
