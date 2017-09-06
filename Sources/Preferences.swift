@@ -44,3 +44,13 @@ public struct AnyPreferenceKey<Value: PreferenceValue>: PreferenceKey {
         self.rawKey = rawKey
     }
 }
+
+extension String: PreferenceValue {
+    public func encode() -> Data? {
+        return data(using: .utf8)
+    }
+
+    public static func decode(_ data: Data) -> String? {
+        return String(data: data, encoding: .utf8)
+    }
+}

@@ -44,6 +44,15 @@ class PreferencesTests: XCTestCase {
         XCTAssertEqual(initialValue.homeNumber, extractedValue?.homeNumber)
     }
 
+    func testBundledStringPreferenceValue() {
+        let preferences = UserDefaults.standard
+        let initialValue = "Initial"
+        let key = AnyPreferenceKey<String>(rawKey: "aKey")
+        preferences.set(initialValue, for: key)
+        let extractedValue = preferences.get(key)
+        XCTAssertEqual(initialValue, extractedValue)
+    }
+
     static var allTests = [
       ("testKeychain", testKeychain),
       ("testCodable", testCodable),
