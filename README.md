@@ -15,6 +15,7 @@ let preferences = KeychainPreferences() // or UserDefaults.standard
 ```
 
 ### Define Key
+
 With `AnyPreferenceKey`:
 ```swift
 let key = AnyPreferenceKey<String>(rawKey: "aKey")
@@ -32,11 +33,63 @@ struct AddressKey: PreferenceKey {
 let key = AddressKey(name: "aKey")
 ```
 
+`PreferenceKey` have an assosiated type which should conform to `Codable` protocol. You can save to preferences anything that conforms to `Codable` including `String`, `Date`, `Int`, etc. 
+
 ### Set Value
 
 Set a value with AnyPreferenceKey:
 ```swift
 try preferences.set("PreferenceValue", for: key)
+```
+
+### Get Value
+
+```swift
+let value: String? = try preferences.get(key)
+```
+
+### Remove Value
+
+```swift
+try preferences.set(nil, for: key)
+```
+
+### Complex example
+
+Define value:
+```swift
+struct Name: Codable {
+  let first: String
+  let second: String
+}
+```
+
+Define key:
+```swift
+struct NameKey: PreferenceKey {
+  let name: String
+
+  typealias PreferenceValueType = Name
+  var rawKey: String { return name }
+}
+```
+
+Use:
+```swift
+let preferences = KeychainPreferences()
+
+let myName = Name(first: "Alex", second: "B")
+let currentUserKey = NameKey(name: "com.app.current_user")
+
+do {
+    try preferences.set(myName, for: currentUserKey)
+    let savedValue: Name? = try preferences.get(currentUserKey)
+    print("Saved value: \(String(describing: savedValue))")
+}
+catch {
+    print("Can't save value with error: \(error)")
+}
+
 ```
 
 ## Links
