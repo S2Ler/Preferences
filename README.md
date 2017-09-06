@@ -92,6 +92,12 @@ catch {
 
 ```
 
+### Custom Preferences
+
+- Step 1: Create a type that conforms to `Preferences`. 
+- Step 2: Use 🙂 
+- Step 3: Submit pull request, so that I can consider including your preferences in a standard bundle if it makes sense.
+
 ## Links
 - [Changelog](CHANGELOG.md)
 
