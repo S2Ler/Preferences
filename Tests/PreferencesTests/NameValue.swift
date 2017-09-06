@@ -14,18 +14,6 @@ struct Name: Codable {
   let second: String
 }
 
-extension Name: PreferenceValue {
-  func encode() -> Data? {
-    let encoder = JSONEncoder()
-    return try? encoder.encode(self)
-  }
-
-  static func decode(_ data: Data) -> Name? {
-    let decoder = JSONDecoder()
-    return try? decoder.decode(Name.self, from: data)
-  }
-}
-
 struct NameKey: PreferenceKey {
   let name: String
 

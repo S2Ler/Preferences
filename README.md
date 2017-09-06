@@ -14,7 +14,32 @@ Instantiate your variant of preferences:
 let preferences = KeychainPreferences() // or UserDefaults.standard
 ```
 
-### Using AnyPreferenceKey
+### Define Key
+With `AnyPreferenceKey`:
+```swift
+let key = AnyPreferenceKey<String>(rawKey: "aKey")
+```
 
+With custom key conforming to protocol `PreferenceKey`:
+```swift
+struct AddressKey: PreferenceKey {
+    let name: String
+
+    typealias PreferenceValueType = String
+    var rawKey: String { return name }
+}
+
+let key = AddressKey(name: "aKey")
+```
+
+### Set Value
+
+Set a value with AnyPreferenceKey:
+```swift
+try preferences.set("PreferenceValue", for: key)
+```
+
+## Links
+- [Changelog](CHANGELOG.me)
 
 

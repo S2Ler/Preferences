@@ -10,6 +10,7 @@
 		095B2FA01F5FC11200B6758F /* AddressValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B2F9C1F5FC11200B6758F /* AddressValue.swift */; };
 		095B2FA11F5FC11200B6758F /* PreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B2F9D1F5FC11200B6758F /* PreferencesTests.swift */; };
 		095B2FA21F5FC11200B6758F /* NameValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095B2F9E1F5FC11200B6758F /* NameValue.swift */; };
+		09A9829A1F6020C000EFAF4F /* AnyPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A982991F6020C000EFAF4F /* AnyPreferenceKey.swift */; };
 		09D32E8A1EFC5D140075C0EE /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32E871EFC5D140075C0EE /* Preferences.swift */; };
 		09D32E8B1EFC5D140075C0EE /* UserDefaultsPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32E881EFC5D140075C0EE /* UserDefaultsPreferences.swift */; };
 		09D32E8C1EFC5D140075C0EE /* KeychainPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32E891EFC5D140075C0EE /* KeychainPreferences.swift */; };
@@ -47,6 +48,7 @@
 		0995F20A1F541311004F7BDF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		0995F20B1F541311004F7BDF /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		0995F20C1F541311004F7BDF /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		09A982991F6020C000EFAF4F /* AnyPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPreferenceKey.swift; sourceTree = "<group>"; };
 		09D32E871EFC5D140075C0EE /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		09D32E881EFC5D140075C0EE /* UserDefaultsPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsPreferences.swift; sourceTree = "<group>"; };
 		09D32E891EFC5D140075C0EE /* KeychainPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPreferences.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				09D32E871EFC5D140075C0EE /* Preferences.swift */,
+				09A982991F6020C000EFAF4F /* AnyPreferenceKey.swift */,
 				09D32E881EFC5D140075C0EE /* UserDefaultsPreferences.swift */,
 				09D32E891EFC5D140075C0EE /* KeychainPreferences.swift */,
 			);
@@ -346,6 +349,7 @@
 				09D32E8A1EFC5D140075C0EE /* Preferences.swift in Sources */,
 				09D32E8C1EFC5D140075C0EE /* KeychainPreferences.swift in Sources */,
 				09D32E8B1EFC5D140075C0EE /* UserDefaultsPreferences.swift in Sources */,
+				09A9829A1F6020C000EFAF4F /* AnyPreferenceKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

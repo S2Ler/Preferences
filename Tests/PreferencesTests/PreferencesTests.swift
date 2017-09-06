@@ -15,8 +15,8 @@ class PreferencesTests: XCTestCase {
         let preferences = KeychainPreferences()
         let initialValue = Name(first: "alex", second: "b")
         let key = NameKey(name: "main")
-        preferences.set(initialValue, for: key)
-        let extractedValue = preferences.get(key)
+        XCTAssertNoThrow(try preferences.set(initialValue, for: key), "")
+        let extractedValue = (try? preferences.get(key)).flatMap { $0 }
         XCTAssertNotNil(extractedValue)
         XCTAssertEqual(initialValue.first, extractedValue?.first)
         XCTAssertEqual(initialValue.second, extractedValue?.second)
@@ -26,8 +26,8 @@ class PreferencesTests: XCTestCase {
         let preferences = UserDefaults.standard
         let initialValue = Address(street: "Noname", homeNumber: 777)
         let key = AddressKey(name: "my")
-        preferences.set(initialValue, for: key)
-        let extractedValue = preferences.get(key)
+        XCTAssertNoThrow(try preferences.set(initialValue, for: key), "")
+        let extractedValue = (try? preferences.get(key)).flatMap { $0 }
         XCTAssertNotNil(extractedValue)
         XCTAssertEqual(initialValue.street, extractedValue?.street)
         XCTAssertEqual(initialValue.homeNumber, extractedValue?.homeNumber)
@@ -37,19 +37,27 @@ class PreferencesTests: XCTestCase {
         let preferences = UserDefaults.standard
         let initialValue = Address(street: "Noname", homeNumber: 777)
         let key = AnyPreferenceKey<Address>(rawKey: "my")
-        preferences.set(initialValue, for: key)
-        let extractedValue = preferences.get(key)
+        XCTAssertNoThrow(try preferences.set(initialValue, for: key), "")
+        let extractedValue = (try? preferences.get(key)).flatMap { $0 }
         XCTAssertNotNil(extractedValue)
         XCTAssertEqual(initialValue.street, extractedValue?.street)
         XCTAssertEqual(initialValue.homeNumber, extractedValue?.homeNumber)
     }
 
-    func testBundledStringPreferenceValue() {
+    func testBundledPreferenceValues() {
+        test(initialValue: "InitialValue")
+        test(initialValue: -64 as Int)
+        test(initialValue: 8 as UInt)
+        test(initialValue: 64.0 as Double)
+        test(initialValue: 64.0 as Float)
+        test(initialValue: Date())
+    }
+    
+    func test<Value: Codable & Equatable>(initialValue: Value) {
         let preferences = UserDefaults.standard
-        let initialValue = "Initial"
-        let key = AnyPreferenceKey<String>(rawKey: "aKey")
-        preferences.set(initialValue, for: key)
-        let extractedValue = preferences.get(key)
+        let key = AnyPreferenceKey<Value>(rawKey: "aKey")
+        XCTAssertNoThrow(try preferences.set(initialValue, for: key), "")
+        let extractedValue = (try? preferences.get(key)).flatMap { $0 }
         XCTAssertEqual(initialValue, extractedValue)
     }
 
@@ -57,6 +65,7 @@ class PreferencesTests: XCTestCase {
       ("testKeychain", testKeychain),
       ("testCodable", testCodable),
       ("testAnyPreferenceKey", testAnyPreferenceKey),
+      ("testBundledPreferenceValues", testBundledPreferenceValues),
       ]
 
 }

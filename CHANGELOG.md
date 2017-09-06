@@ -6,6 +6,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- [CodablePreferenceValue](Sources/Preferences.swift) protocol with default [PreferenceValue](Sources/Preferences.swift) implementation for values which conforms to [Codable](https://developer.apple.com/documentation/swift/codable)
+- Replace `PreferenceValue` protocol with Swift 4 `Codable` protocol
 - [AnyPreferenceKey](Sources/Preferences.swift) to simplify creation of the keys.
 - [SPM](https://swift.org/package-manager/) support

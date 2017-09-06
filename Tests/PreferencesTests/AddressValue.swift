@@ -9,7 +9,7 @@
 import Foundation
 import Preferences
 
-struct Address: CodablePreferenceValue {
+struct Address: Codable {
     let street: String
     let homeNumber: Int
 }
