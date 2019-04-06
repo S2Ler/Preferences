@@ -16,7 +16,7 @@ class PreferencesTests: XCTestCase {
         let initialValue = Name(first: "alex", second: "b")
         let key = NameKey(name: "main")
         XCTAssertNoThrow(try preferences.set(initialValue, for: key), "")
-        let extractedValue = (try? preferences.get(key)).flatMap { $0 }
+        let extractedValue = (((try? preferences.get(key)) as NameKey.PreferenceValueType??)).flatMap { $0 }
         XCTAssertNotNil(extractedValue)
         XCTAssertEqual(initialValue.first, extractedValue?.first)
         XCTAssertEqual(initialValue.second, extractedValue?.second)
@@ -27,7 +27,7 @@ class PreferencesTests: XCTestCase {
         let initialValue = Address(street: "Noname", homeNumber: 777)
         let key = AddressKey(name: "my")
         XCTAssertNoThrow(try preferences.set(initialValue, for: key), "")
-        let extractedValue = (try? preferences.get(key)).flatMap { $0 }
+        let extractedValue = (((try? preferences.get(key)) as AddressKey.PreferenceValueType??)).flatMap { $0 }
         XCTAssertNotNil(extractedValue)
         XCTAssertEqual(initialValue.street, extractedValue?.street)
         XCTAssertEqual(initialValue.homeNumber, extractedValue?.homeNumber)
@@ -38,7 +38,7 @@ class PreferencesTests: XCTestCase {
         let initialValue = Address(street: "Noname", homeNumber: 777)
         let key = AnyPreferenceKey<Address>(rawKey: "my")
         XCTAssertNoThrow(try preferences.set(initialValue, for: key), "")
-        let extractedValue = (try? preferences.get(key)).flatMap { $0 }
+        let extractedValue = (((try? preferences.get(key)) as Address??)).flatMap { $0 }
         XCTAssertNotNil(extractedValue)
         XCTAssertEqual(initialValue.street, extractedValue?.street)
         XCTAssertEqual(initialValue.homeNumber, extractedValue?.homeNumber)
@@ -57,7 +57,7 @@ class PreferencesTests: XCTestCase {
         let preferences = UserDefaults.standard
         let key = AnyPreferenceKey<Value>(rawKey: "aKey")
         XCTAssertNoThrow(try preferences.set(initialValue, for: key), "")
-        let extractedValue = (try? preferences.get(key)).flatMap { $0 }
+        let extractedValue = (((try? preferences.get(key)) as Value??)).flatMap { $0 }
         XCTAssertEqual(initialValue, extractedValue)
     }
 
