@@ -1,5 +1,3 @@
-//  Created by Alexander Belyavskiy on 6/22/17.
-
 import Foundation
 import Security
 
