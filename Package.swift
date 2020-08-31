@@ -1,25 +1,27 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.3
 
 import PackageDescription
 
 let package = Package(
-    name: "Preferences",
-    products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
-        .library(
-            name: "Preferences",
-            targets: ["Preferences"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-        .target(
-            name: "Preferences",
-            dependencies: [],
-            path: "Sources"),
-        .testTarget(
-            name: "PreferencesTests",
-            dependencies: ["Preferences"]),
-    ],
-    swiftLanguageVersions: [.v5]
+  name: "Preferences",
+  products: [
+    .library(
+      name: "Preferences",
+      targets: ["Preferences"]
+    ),
+  ],
+  targets: [
+
+    .target(
+      name: "Preferences",
+      dependencies: [
+      ],
+      path: "Sources"
+    ),
+    .testTarget(
+      name: "PreferencesTests",
+      dependencies: ["Preferences"]
+    ),
+  ],
+  swiftLanguageVersions: [.v5]
 )
