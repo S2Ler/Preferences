@@ -1,11 +1,3 @@
-//
-//  PreferenceValue.swift
-//  PreferencesTests
-//
-//  Created by Alexander Belyavskiy on 6/22/17.
-//  Copyright © 2017 Alexander Belyavskiy. All rights reserved.
-//
-
 import Foundation
 import Preferences
 

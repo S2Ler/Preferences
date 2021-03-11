@@ -6,6 +6,16 @@ public protocol Preferences {
 }
 
 extension Preferences {
+  public func get<Value: Codable>(_ key: String, of type: Value.Type) throws -> Value? {
+    try get(AnyPreferenceKey<Value>(rawKey: key))
+  }
+
+  public func set<Value: Codable>(_ value: Value?, for key: String) throws {
+    try set(value, for: AnyPreferenceKey<Value>(rawKey: key))
+  }
+}
+
+extension Preferences {
     internal func encode<Value: Codable>(_ value: Value) throws -> Data {
         return try JSONEncoder().encode([value])
     }

@@ -1,15 +1,7 @@
-//
-//  AddressValue.swift
-//  PreferencesTests
-//
-//  Created by Aliaksandr Bialiauski on 8/28/17.
-//  Copyright © 2017 Alexander Belyavskiy. All rights reserved.
-//
-
 import Foundation
 import Preferences
 
-struct Address: Codable {
+struct Address: Codable, Equatable {
     let street: String
     let homeNumber: Int
 }
