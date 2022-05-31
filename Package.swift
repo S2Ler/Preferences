@@ -1,27 +1,35 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(
-  name: "Preferences",
-  products: [
-    .library(
-      name: "Preferences",
-      targets: ["Preferences"]
-    ),
-  ],
-  targets: [
-
-    .target(
-      name: "Preferences",
-      dependencies: [
-      ],
-      path: "Sources"
-    ),
-    .testTarget(
-      name: "PreferencesTests",
-      dependencies: ["Preferences"]
-    ),
-  ],
-  swiftLanguageVersions: [.v5]
+    name: "Preferences",
+    products: [
+        .library(
+            name: "Preferences",
+            targets: ["Preferences"]
+        ),
+        .library(
+            name: "PreferencesForSwiftUI",
+            targets: ["PreferencesForSwiftUI"]
+        ),
+    ],
+    targets: [
+        .target(
+            name: "Preferences",
+            dependencies: [
+            ]
+        ),
+        .target(
+            name: "PreferencesForSwiftUI",
+            dependencies: [
+                "Preferences",
+            ]
+        ),
+        .testTarget(
+            name: "PreferencesTests",
+            dependencies: ["Preferences"]
+        ),
+    ],
+    swiftLanguageVersions: [.v5]
 )
